@@ -1,11 +1,11 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Fragment } from "react";
 
-function App() {
-  return (
-   <h1>Hello start</h1>
-  );
+function App(): JSX.Element {
+	return(
+    <Fragment>
+      
+      </Fragment>
+  )
 }
 
 export default App;
