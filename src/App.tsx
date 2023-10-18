@@ -1,6 +1,7 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useState } from "react";
 
 function App(): JSX.Element {
+  const[state, setState] = useState(initialState)
 	return(
     <Fragment>
       <form>
