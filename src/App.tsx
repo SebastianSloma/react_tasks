@@ -1,7 +1,7 @@
 import React, { Fragment, useState } from "react";
 
 function App(): JSX.Element {
-  const[state, setState] = useState(initialState)
+  const[newTask, setNewTask] = useState('')
 	return(
     <Fragment>
       <form>
