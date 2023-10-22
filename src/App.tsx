@@ -31,14 +31,18 @@ function App(): JSX.Element {
 									onChange={e => setNewTask(e.target.value)}
 									value={newTask}
 									className='form-control'
+									autoFocus
 								/>
-								<button>Save</button>
+								<button className='btn btn-success btn-block mt-2'>Save</button>
 							</form>
 						</div>
 					</div>
-					{tasks.map((t: ITask, i: number) => {
-						return <h1 key={i}>{t.name}</h1>;
-					})}
+					{tasks.map((t: ITask, i: number) => (
+						<div className='card card-body mt-2' key={i}>
+							<h2>{t.name}</h2>
+							<p>{t.done}</p>
+						</div>
+					))}
 				</div>
 			</div>
 		</div>
