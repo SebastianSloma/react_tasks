@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from 'react';
+import React, { useState } from 'react';
 
 type FormElement = React.FormEvent<HTMLFormElement>;
 interface ITask {
@@ -39,8 +39,9 @@ function App(): JSX.Element {
 					</div>
 					{tasks.map((t: ITask, i: number) => (
 						<div className='card card-body mt-2' key={i}>
-							<h2>{t.name}</h2>
-							<p>{t.done}</p>
+							<h2 style={{ textDecoration: t.done ? 'line-through' : '' }}>
+								{t.name}
+							</h2>
 						</div>
 					))}
 				</div>
