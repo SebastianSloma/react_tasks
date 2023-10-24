@@ -42,6 +42,11 @@ function App(): JSX.Element {
 							<h2 style={{ textDecoration: t.done ? 'line-through' : '' }}>
 								{t.name}
 							</h2>
+							<div>
+								<button>
+									{t.done ? 'OK' : 'X'}
+								</button>
+							</div>
 						</div>
 					))}
 				</div>
