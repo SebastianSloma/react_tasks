@@ -8,22 +8,29 @@ interface ITask {
 function App(): JSX.Element {
 	const [newTask, setNewTask] = useState<string>('');
 	const [tasks, setTasks] = useState<ITask[]>([]);
+	const taskInput = useRef<HTMLInputElement>(null)
 
 	const handleSubmit = (e: FormElement) => {
 		e.preventDefault();
 		addTask(newTask);
 		setNewTask('');
 	};
-	const addTask = (name: string) => {
+	const addTask = (name: string): void => {
 		const newTasks: ITask[] = [...tasks, { name, done: false }];
 		setTasks(newTasks);
 	};
 
-	const toggleDoneTask = (i:number) => {
+	const toggleDoneTask = (i:number): void => {
 		const newTasks: ITask[] = [...tasks];
 		newTasks[i].done = !newTasks[i].done
 		setTasks(newTasks)
 	};
+
+	const removeTask = (i: number) :void =>{
+		const newTasks:ITask[]=[...tasks]
+		newTasks.splice(i,1)
+		setTasks(newTasks)
+	}
 
 	return (
 		<div className='container p-4'>
@@ -37,6 +44,7 @@ function App(): JSX.Element {
 									onChange={e => setNewTask(e.target.value)}
 									value={newTask}
 									className='form-control'
+									ref={taskInput}
 									autoFocus
 								/>
 								<button className='btn btn-success btn-block mt-2'>Save</button>
@@ -51,6 +59,9 @@ function App(): JSX.Element {
 							<div>
 								<button className='btn btn-secondary' onClick={()=>toggleDoneTask(i)}>
 									{t.done ? 'OK' : 'X'}
+								</button>
+								<button className='btn btn-danger' onClick={()=> removeTask(i)}>
+								DELETE
 								</button>
 							</div>
 						</div>
