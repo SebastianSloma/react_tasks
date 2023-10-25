@@ -43,7 +43,7 @@ function App(): JSX.Element {
 								{t.name}
 							</h2>
 							<div>
-								<button>
+								<button className='btn btn-secondary'>
 									{t.done ? 'OK' : 'X'}
 								</button>
 							</div>
