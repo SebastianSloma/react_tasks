@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 
 type FormElement = React.FormEvent<HTMLFormElement>;
 interface ITask {
@@ -14,6 +14,7 @@ function App(): JSX.Element {
 		e.preventDefault();
 		addTask(newTask);
 		setNewTask('');
+		taskInput.current?.focus()
 	};
 	const addTask = (name: string): void => {
 		const newTasks: ITask[] = [...tasks, { name, done: false }];
