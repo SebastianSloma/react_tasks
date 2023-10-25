@@ -19,6 +19,12 @@ function App(): JSX.Element {
 		setTasks(newTasks);
 	};
 
+	const toggleDoneTask = (i:number) => {
+		const newTasks: ITask[] = [...tasks];
+		newTasks[i].done = !newTasks[i].done
+		setTasks(newTasks)
+	};
+
 	return (
 		<div className='container p-4'>
 			<div className='row'>
@@ -43,7 +49,7 @@ function App(): JSX.Element {
 								{t.name}
 							</h2>
 							<div>
-								<button className='btn btn-secondary'>
+								<button className='btn btn-secondary' onClick={()=>toggleDoneTask(i)}>
 									{t.done ? 'OK' : 'X'}
 								</button>
 							</div>
